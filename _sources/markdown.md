@@ -1,45 +1,239 @@
 ## Eliminasi Gauss (Gaussian Elimination)
 
-### Gambaran Umum
+### Tugas
 
-Bagian ini melanjutkan pembahasan sistem persamaan linear dengan memperkenalkan Eliminasi Gauss, yaitu algoritma sistematis untuk mereduksi sistem linear menjadi bentuk yang lebih sederhana (row echelon form) sehingga mudah diselesaikan dengan substitusi mundur.
+Contoh SPL 3 Variabel
+## Sistem Persamaan Linear 3 Variabel
 
-### Apa Itu Gaussian Elimination?
+Diketahui:
 
-Gaussian Elimination adalah algoritma untuk mengubah sistem persamaan linear menjadi bentuk yang lebih sederhana sehingga kita bisa menemukan solusi variabelnya.
+$$
+\begin{cases}
+x_1 - x_2 + x_3 = 3 \\
+2x_1 + x_2 + 8x_3 = 18 \\
+4x_1 + 2x_2 - 3x_3 = -2
+\end{cases}
+$$
 
-$$\begin{equation}
-F(x_1,x_2,\dots, x_n)=G(x_1,x_2,\dots, x_n)\tag{1.1.5}
-\end{equation}$$
+Bentuk matriks augmented:
 
-Menulis sistem persamaan sebagai matriks augmented (koefisien + konstanta)
+$$
+\left[
+\begin{array}{rrr|r}
+1 & -1 & 1 & 3 \\
+2 & 1 & 8 & 18 \\
+4 & 2 & -3 & -2
+\end{array}
+\right]
+$$
 
-Menggunakan operasi baris elementer untuk mengubah matriks
+### Eliminasi Kolom Pertama
 
-Mengubahnya ke bentuk eselon baris (row echelon form) atau bahkan bentuk eselon baris tereduksi (RREF)
+$$
+R_2 \rightarrow R_2 - 2R_1
+$$
 
-Here is a "note" directive:
+$$
+R_3 \rightarrow R_3 - 4R_1
+$$
 
-```{note}
-Here is a note
-```
+Hasil:
 
-It will be rendered in a special box when you build your book.
+$$
+\left[
+\begin{array}{rrr|r}
+1 & -1 & 1 & 3 \\
+0 & 3 & 6 & 12 \\
+0 & 6 & -7 & -14
+\end{array}
+\right]
+$$
 
-Here is an inline directive to refer to a document: {doc}`markdown-notebooks`.
+### Eliminasi Kolom Kedua
 
+$$
+R_3 \rightarrow R_3 - 2R_2
+$$
 
-## Citations
+$$
+\left[
+\begin{array}{rrr|r}
+1 & -1 & 1 & 3 \\
+0 & 3 & 6 & 12 \\
+0 & 0 & -19 & -38
+\end{array}
+\right]
+$$
 
-You can also cite references that are stored in a `bibtex` file. For example,
-the following syntax: `` {cite}`holdgraf_evidence_2014` `` will render like
-this: {cite}`holdgraf_evidence_2014`.
+### Membuat Pivot = 1
 
-Moreover, you can insert a bibliography into your page with this syntax:
-The `{bibliography}` directive must be used for all the `{cite}` roles to
-render properly.
-For example, if the references for your book are stored in `references.bib`,
-then the bibliography is inserted with:
+$$
+R_3 \rightarrow -\frac{1}{19}R_3
+$$
+
+$$
+\left[
+\begin{array}{rrr|r}
+1 & -1 & 1 & 3 \\
+0 & 3 & 6 & 12 \\
+0 & 0 & 1 & 2
+\end{array}
+\right]
+$$
+
+### Substitusi Balik
+
+$$
+x_3 = 2
+$$
+
+$$
+x_2 = 0
+$$
+
+$$
+x_1 = 1
+$$
+
+$$
+(x_1, x_2, x_3) = (1,0,2)
+$$
+
+## Sistem Persamaan Linear 4 Variabel
+
+Diketahui:
+
+$$
+\begin{cases}
+x_1 + x_2 + x_3 + x_4 = 10 \\
+2x_1 + 3x_2 + x_3 + x_4 = 16 \\
+x_1 - x_2 + 2x_3 + x_4 = 8 \\
+3x_1 + x_2 + x_3 + 2x_4 = 17
+\end{cases}
+$$
+
+Bentuk matriks augmented:
+
+$$
+\left[
+\begin{array}{rrrr|r}
+1 & 1 & 1 & 1 & 10 \\
+2 & 3 & 1 & 1 & 16 \\
+1 & -1 & 2 & 1 & 8 \\
+3 & 1 & 1 & 2 & 17
+\end{array}
+\right]
+$$
+
+### Eliminasi Kolom Pertama
+
+$$
+R_2 \rightarrow R_2 - 2R_1
+$$
+
+$$
+R_3 \rightarrow R_3 - R_1
+$$
+
+$$
+R_4 \rightarrow R_4 - 3R_1
+$$
+
+Hasil:
+
+$$
+\left[
+\begin{array}{rrrr|r}
+1 & 1 & 1 & 1 & 10 \\
+0 & 1 & -1 & -1 & -4 \\
+0 & -2 & 1 & 0 & -2 \\
+0 & -2 & -2 & -1 & -13
+\end{array}
+\right]
+$$
+
+### Eliminasi Kolom Kedua
+
+$$
+R_3 \rightarrow R_3 + 2R_2
+$$
+
+$$
+R_4 \rightarrow R_4 + 2R_2
+$$
+
+$$
+\left[
+\begin{array}{rrrr|r}
+1 & 1 & 1 & 1 & 10 \\
+0 & 1 & -1 & -1 & -4 \\
+0 & 0 & -1 & -2 & -10 \\
+0 & 0 & -4 & -3 & -21
+\end{array}
+\right]
+$$
+
+### Eliminasi Kolom Ketiga
+
+$$
+R_4 \rightarrow R_4 - 4R_3
+$$
+
+$$
+\left[
+\begin{array}{rrrr|r}
+1 & 1 & 1 & 1 & 10 \\
+0 & 1 & -1 & -1 & -4 \\
+0 & 0 & -1 & -2 & -10 \\
+0 & 0 & 0 & 5 & 19
+\end{array}
+\right]
+$$
+
+### Membuat Pivot = 1
+
+$$
+R_4 \rightarrow \frac{1}{5}R_4
+$$
+
+$$
+\left[
+\begin{array}{rrrr|r}
+1 & 1 & 1 & 1 & 10 \\
+0 & 1 & -1 & -1 & -4 \\
+0 & 0 & -1 & -2 & -10 \\
+0 & 0 & 0 & 1 & \frac{19}{5}
+\end{array}
+\right]
+$$
+
+### Substitusi Balik
+
+$$
+x_4 = \frac{19}{5}
+$$
+
+$$
+x_3 = \frac{12}{5}
+$$
+
+$$
+x_2 = \frac{11}{5}
+$$
+
+$$
+x_1 = \frac{8}{5}
+$$
+
+$$
+(x_1,x_2,x_3,x_4)=
+\left(
+\frac{8}{5},
+\frac{11}{5},
+\frac{12}{5},
+\frac{19}{5}
+\right)
+$$
 
 ```{bibliography}
 ```

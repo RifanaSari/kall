@@ -63,7 +63,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Content with notebooks" href="notebooks.html" />
-    <link rel="prev" title="Sistem Persamaan Linier dan Solusi Sistem Persamaan Linier" href="intro.html" />
+    <link rel="prev" title="Sistem Persamaan Linear" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -177,12 +177,13 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Sistem Persamaan Linier dan Solusi Sistem Persamaan Linier
+                    Sistem Persamaan Linear
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Eliminasi Gauss (Gaussian Elimination)</a></li>
+
 
 
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
@@ -383,11 +384,24 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Eliminasi Gauss (Gaussian Elimination)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gambaran-umum">Gambaran Umum</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-itu-gaussian-elimination">Apa Itu Gaussian Elimination?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas">Tugas</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#citations">Citations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear-3-variabel">Sistem Persamaan Linear 3 Variabel</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-kolom-pertama">Eliminasi Kolom Pertama</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-kolom-kedua">Eliminasi Kolom Kedua</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-pivot-1">Membuat Pivot = 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#substitusi-balik">Substitusi Balik</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear-4-variabel">Sistem Persamaan Linear 4 Variabel</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Eliminasi Kolom Pertama</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Eliminasi Kolom Kedua</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-kolom-ketiga">Eliminasi Kolom Ketiga</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Membuat Pivot = 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Substitusi Balik</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-more">Learn more</a></li>
 </ul>
 
@@ -403,47 +417,247 @@ document.write(`
                   
   <section id="eliminasi-gauss-gaussian-elimination">
 <h1>Eliminasi Gauss (Gaussian Elimination)<a class="headerlink" href="#eliminasi-gauss-gaussian-elimination" title="Link to this heading">#</a></h1>
-<section id="gambaran-umum">
-<h2>Gambaran Umum<a class="headerlink" href="#gambaran-umum" title="Link to this heading">#</a></h2>
-<p>Bagian ini melanjutkan pembahasan sistem persamaan linear dengan memperkenalkan Eliminasi Gauss, yaitu algoritma sistematis untuk mereduksi sistem linear menjadi bentuk yang lebih sederhana (row echelon form) sehingga mudah diselesaikan dengan substitusi mundur.</p>
+<section id="tugas">
+<h2>Tugas<a class="headerlink" href="#tugas" title="Link to this heading">#</a></h2>
+<p>Contoh SPL 3 Variabel</p>
 </section>
-<section id="apa-itu-gaussian-elimination">
-<h2>Apa Itu Gaussian Elimination?<a class="headerlink" href="#apa-itu-gaussian-elimination" title="Link to this heading">#</a></h2>
-<p>Gaussian Elimination adalah algoritma untuk mengubah sistem persamaan linear menjadi bentuk yang lebih sederhana sehingga kita bisa menemukan solusi variabelnya.</p>
+</section>
+<section id="sistem-persamaan-linear-3-variabel">
+<h1>Sistem Persamaan Linear 3 Variabel<a class="headerlink" href="#sistem-persamaan-linear-3-variabel" title="Link to this heading">#</a></h1>
+<p>Diketahui:</p>
 <div class="math notranslate nohighlight">
-\[\begin{equation}
-F(x_1,x_2,\dots, x_n)=G(x_1,x_2,\dots, x_n)\tag{1.1.5}
-\end{equation}\]</div>
-<p>Menulis sistem persamaan sebagai matriks augmented (koefisien + konstanta)</p>
-<p>Menggunakan operasi baris elementer untuk mengubah matriks</p>
-<p>Mengubahnya ke bentuk eselon baris (row echelon form) atau bahkan bentuk eselon baris tereduksi (RREF)</p>
-<p>Here is a “note” directive:</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Here is a note</p>
-</div>
-<p>It will be rendered in a special box when you build your book.</p>
-<p>Here is an inline directive to refer to a document: <a class="reference internal" href="markdown-notebooks.html"><span class="doc">Notebooks with MyST Markdown</span></a>.</p>
+\[\begin{split}
+\begin{cases}
+x_1 - x_2 + x_3 = 3 \\
+2x_1 + x_2 + 8x_3 = 18 \\
+4x_1 + 2x_2 - 3x_3 = -2
+\end{cases}
+\end{split}\]</div>
+<p>Bentuk matriks augmented:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[
+\begin{array}{rrr|r}
+1 &amp; -1 &amp; 1 &amp; 3 \\
+2 &amp; 1 &amp; 8 &amp; 18 \\
+4 &amp; 2 &amp; -3 &amp; -2
+\end{array}
+\right]
+\end{split}\]</div>
+<section id="eliminasi-kolom-pertama">
+<h2>Eliminasi Kolom Pertama<a class="headerlink" href="#eliminasi-kolom-pertama" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+R_2 \rightarrow R_2 - 2R_1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+R_3 \rightarrow R_3 - 4R_1
+\]</div>
+<p>Hasil:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[
+\begin{array}{rrr|r}
+1 &amp; -1 &amp; 1 &amp; 3 \\
+0 &amp; 3 &amp; 6 &amp; 12 \\
+0 &amp; 6 &amp; -7 &amp; -14
+\end{array}
+\right]
+\end{split}\]</div>
+</section>
+<section id="eliminasi-kolom-kedua">
+<h2>Eliminasi Kolom Kedua<a class="headerlink" href="#eliminasi-kolom-kedua" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+R_3 \rightarrow R_3 - 2R_2
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[
+\begin{array}{rrr|r}
+1 &amp; -1 &amp; 1 &amp; 3 \\
+0 &amp; 3 &amp; 6 &amp; 12 \\
+0 &amp; 0 &amp; -19 &amp; -38
+\end{array}
+\right]
+\end{split}\]</div>
+</section>
+<section id="membuat-pivot-1">
+<h2>Membuat Pivot = 1<a class="headerlink" href="#membuat-pivot-1" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+R_3 \rightarrow -\frac{1}{19}R_3
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[
+\begin{array}{rrr|r}
+1 &amp; -1 &amp; 1 &amp; 3 \\
+0 &amp; 3 &amp; 6 &amp; 12 \\
+0 &amp; 0 &amp; 1 &amp; 2
+\end{array}
+\right]
+\end{split}\]</div>
+</section>
+<section id="substitusi-balik">
+<h2>Substitusi Balik<a class="headerlink" href="#substitusi-balik" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+x_3 = 2
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+x_2 = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+x_1 = 1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+(x_1, x_2, x_3) = (1,0,2)
+\]</div>
 </section>
 </section>
-<section id="citations">
-<h1>Citations<a class="headerlink" href="#citations" title="Link to this heading">#</a></h1>
-<p>You can also cite references that are stored in a <code class="docutils literal notranslate"><span class="pre">bibtex</span></code> file. For example,
-the following syntax: <code class="docutils literal notranslate"><span class="pre">{cite}`holdgraf_evidence_2014`</span></code> will render like
-this: <span id="id1">[<a class="reference internal" href="#id3" title="Christopher Ramsay Holdgraf, Wendy de Heer, Brian N. Pasley, and Robert T. Knight. Evidence for Predictive Coding in Human Auditory Cortex. In International Conference on Cognitive Neuroscience. Brisbane, Australia, Australia, 2014. Frontiers in Neuroscience.">HdHPK14</a>]</span>.</p>
-<p>Moreover, you can insert a bibliography into your page with this syntax:
-The <code class="docutils literal notranslate"><span class="pre">{bibliography}</span></code> directive must be used for all the <code class="docutils literal notranslate"><span class="pre">{cite}</span></code> roles to
-render properly.
-For example, if the references for your book are stored in <code class="docutils literal notranslate"><span class="pre">references.bib</span></code>,
-then the bibliography is inserted with:</p>
-<div class="docutils container" id="id2">
-<div role="list" class="citation-list">
-<div class="citation" id="id3" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">HdHPK14</a><span class="fn-bracket">]</span></span>
-<p>Christopher Ramsay Holdgraf, Wendy de Heer, Brian N. Pasley, and Robert T. Knight. Evidence for Predictive Coding in Human Auditory Cortex. In <em>International Conference on Cognitive Neuroscience</em>. Brisbane, Australia, Australia, 2014. Frontiers in Neuroscience.</p>
-</div>
-</div>
-</div>
+<section id="sistem-persamaan-linear-4-variabel">
+<h1>Sistem Persamaan Linear 4 Variabel<a class="headerlink" href="#sistem-persamaan-linear-4-variabel" title="Link to this heading">#</a></h1>
+<p>Diketahui:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{cases}
+x_1 + x_2 + x_3 + x_4 = 10 \\
+2x_1 + 3x_2 + x_3 + x_4 = 16 \\
+x_1 - x_2 + 2x_3 + x_4 = 8 \\
+3x_1 + x_2 + x_3 + 2x_4 = 17
+\end{cases}
+\end{split}\]</div>
+<p>Bentuk matriks augmented:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[
+\begin{array}{rrrr|r}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 10 \\
+2 &amp; 3 &amp; 1 &amp; 1 &amp; 16 \\
+1 &amp; -1 &amp; 2 &amp; 1 &amp; 8 \\
+3 &amp; 1 &amp; 1 &amp; 2 &amp; 17
+\end{array}
+\right]
+\end{split}\]</div>
+<section id="id1">
+<h2>Eliminasi Kolom Pertama<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+R_2 \rightarrow R_2 - 2R_1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+R_3 \rightarrow R_3 - R_1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+R_4 \rightarrow R_4 - 3R_1
+\]</div>
+<p>Hasil:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[
+\begin{array}{rrrr|r}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 10 \\
+0 &amp; 1 &amp; -1 &amp; -1 &amp; -4 \\
+0 &amp; -2 &amp; 1 &amp; 0 &amp; -2 \\
+0 &amp; -2 &amp; -2 &amp; -1 &amp; -13
+\end{array}
+\right]
+\end{split}\]</div>
+</section>
+<section id="id2">
+<h2>Eliminasi Kolom Kedua<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+R_3 \rightarrow R_3 + 2R_2
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+R_4 \rightarrow R_4 + 2R_2
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[
+\begin{array}{rrrr|r}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 10 \\
+0 &amp; 1 &amp; -1 &amp; -1 &amp; -4 \\
+0 &amp; 0 &amp; -1 &amp; -2 &amp; -10 \\
+0 &amp; 0 &amp; -4 &amp; -3 &amp; -21
+\end{array}
+\right]
+\end{split}\]</div>
+</section>
+<section id="eliminasi-kolom-ketiga">
+<h2>Eliminasi Kolom Ketiga<a class="headerlink" href="#eliminasi-kolom-ketiga" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+R_4 \rightarrow R_4 - 4R_3
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[
+\begin{array}{rrrr|r}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 10 \\
+0 &amp; 1 &amp; -1 &amp; -1 &amp; -4 \\
+0 &amp; 0 &amp; -1 &amp; -2 &amp; -10 \\
+0 &amp; 0 &amp; 0 &amp; 5 &amp; 19
+\end{array}
+\right]
+\end{split}\]</div>
+</section>
+<section id="id3">
+<h2>Membuat Pivot = 1<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+R_4 \rightarrow \frac{1}{5}R_4
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[
+\begin{array}{rrrr|r}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 10 \\
+0 &amp; 1 &amp; -1 &amp; -1 &amp; -4 \\
+0 &amp; 0 &amp; -1 &amp; -2 &amp; -10 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; \frac{19}{5}
+\end{array}
+\right]
+\end{split}\]</div>
+</section>
+<section id="id4">
+<h2>Substitusi Balik<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+x_4 = \frac{19}{5}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+x_3 = \frac{12}{5}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+x_2 = \frac{11}{5}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+x_1 = \frac{8}{5}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+(x_1,x_2,x_3,x_4)=
+\left(
+\frac{8}{5},
+\frac{11}{5},
+\frac{12}{5},
+\frac{19}{5}
+\right)
+\]</div>
+<span class="target" id="id5"></span></section>
 </section>
 <section id="learn-more">
 <h1>Learn more<a class="headerlink" href="#learn-more" title="Link to this heading">#</a></h1>
@@ -487,7 +701,7 @@ You can learn a lot more at <a class="reference external" href="https://jupyterb
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Sistem Persamaan Linier dan Solusi Sistem Persamaan Linier</p>
+        <p class="prev-next-title"><strong>Sistem Persamaan Linear</strong></p>
       </div>
     </a>
     <a class="right-next"
@@ -516,11 +730,24 @@ You can learn a lot more at <a class="reference external" href="https://jupyterb
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Eliminasi Gauss (Gaussian Elimination)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gambaran-umum">Gambaran Umum</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-itu-gaussian-elimination">Apa Itu Gaussian Elimination?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas">Tugas</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#citations">Citations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear-3-variabel">Sistem Persamaan Linear 3 Variabel</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-kolom-pertama">Eliminasi Kolom Pertama</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-kolom-kedua">Eliminasi Kolom Kedua</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-pivot-1">Membuat Pivot = 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#substitusi-balik">Substitusi Balik</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear-4-variabel">Sistem Persamaan Linear 4 Variabel</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Eliminasi Kolom Pertama</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Eliminasi Kolom Kedua</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-kolom-ketiga">Eliminasi Kolom Ketiga</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Membuat Pivot = 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Substitusi Balik</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-more">Learn more</a></li>
 </ul>
 
