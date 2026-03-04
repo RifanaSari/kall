@@ -155,8 +155,8 @@
       
     
     
-    <img src="_static/foto diri.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/foto diri.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
   
   
 </a></div>
@@ -183,7 +183,6 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Eliminasi Gauss (Gaussian Elimination)</a></li>
-
 
 
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
@@ -402,7 +401,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Substitusi Balik</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-more">Learn more</a></li>
 </ul>
 
             </nav>
@@ -518,6 +516,14 @@ x_1 = 1
 \[
 (x_1, x_2, x_3) = (1,0,2)
 \]</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">]])</span>
+<span class="n">B</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">B</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">B</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">B</span><span class="o">.</span><span class="n">rescale_row</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">B</span>
+</pre></div>
+</div>
 </section>
 </section>
 <section id="sistem-persamaan-linear-4-variabel">
@@ -659,11 +665,6 @@ x_1 = \frac{8}{5}
 \]</div>
 <span class="target" id="id5"></span></section>
 </section>
-<section id="learn-more">
-<h1>Learn more<a class="headerlink" href="#learn-more" title="Link to this heading">#</a></h1>
-<p>This is just a simple starter to get you started.
-You can learn a lot more at <a class="reference external" href="https://jupyterbook.org">jupyterbook.org</a>.</p>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -748,7 +749,6 @@ You can learn a lot more at <a class="reference external" href="https://jupyterb
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Substitusi Balik</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-more">Learn more</a></li>
 </ul>
 
   </nav></div>

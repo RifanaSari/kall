@@ -99,6 +99,15 @@ $$
 (x_1, x_2, x_3) = (1,0,2)
 $$
 
+```python
+B = matrix([[1, 1, 1, 6],[2, 3, 1, 11],[1, -1, 2, 7]])
+B.add_multiple_of_row(1, 0, -2)
+B.add_multiple_of_row(2, 0, -1)
+B.add_multiple_of_row(2, 1, 2)
+B.rescale_row(2, -1)
+B
+```
+
 ## Sistem Persamaan Linear 4 Variabel
 
 Diketahui:
@@ -238,7 +247,3 @@ $$
 ```{bibliography}
 ```
 
-## Learn more
-
-This is just a simple starter to get you started.
-You can learn a lot more at [jupyterbook.org](https://jupyterbook.org).
