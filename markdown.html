@@ -184,7 +184,6 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Eliminasi Gauss (Gaussian Elimination)</a></li>
 
-
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 </ul>
@@ -384,9 +383,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Eliminasi Gauss (Gaussian Elimination)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas">Tugas</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear-3-variabel">Sistem Persamaan Linear 3 Variabel</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear-3-variabel">Sistem Persamaan Linear 3 Variabel</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-kolom-pertama">Eliminasi Kolom Pertama</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-kolom-kedua">Eliminasi Kolom Kedua</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-pivot-1">Membuat Pivot = 1</a></li>
@@ -413,15 +410,14 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="eliminasi-gauss-gaussian-elimination">
+  <section class="tex2jax_ignore mathjax_ignore" id="eliminasi-gauss-gaussian-elimination">
 <h1>Eliminasi Gauss (Gaussian Elimination)<a class="headerlink" href="#eliminasi-gauss-gaussian-elimination" title="Link to this heading">#</a></h1>
 <section id="tugas">
 <h2>Tugas<a class="headerlink" href="#tugas" title="Link to this heading">#</a></h2>
 <p>Contoh SPL 3 Variabel</p>
 </section>
-</section>
 <section id="sistem-persamaan-linear-3-variabel">
-<h1>Sistem Persamaan Linear 3 Variabel<a class="headerlink" href="#sistem-persamaan-linear-3-variabel" title="Link to this heading">#</a></h1>
+<h2>Sistem Persamaan Linear 3 Variabel<a class="headerlink" href="#sistem-persamaan-linear-3-variabel" title="Link to this heading">#</a></h2>
 <p>Diketahui:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -442,6 +438,7 @@ x_1 - x_2 + x_3 = 3 \\
 \end{array}
 \right]
 \end{split}\]</div>
+</section>
 <section id="eliminasi-kolom-pertama">
 <h2>Eliminasi Kolom Pertama<a class="headerlink" href="#eliminasi-kolom-pertama" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
@@ -526,7 +523,7 @@ x_1 = 1
 </div>
 </section>
 </section>
-<section id="sistem-persamaan-linear-4-variabel">
+<section class="tex2jax_ignore mathjax_ignore" id="sistem-persamaan-linear-4-variabel">
 <h1>Sistem Persamaan Linear 4 Variabel<a class="headerlink" href="#sistem-persamaan-linear-4-variabel" title="Link to this heading">#</a></h1>
 <p>Diketahui:</p>
 <div class="math notranslate nohighlight">
@@ -663,6 +660,18 @@ x_1 = \frac{8}{5}
 \frac{19}{5}
 \right)
 \]</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">16</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">]])</span>
+
+<span class="n">B</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">B</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">B</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">B</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">B</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">B</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">B</span><span class="o">.</span><span class="n">rescale_row</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">B</span>
+</pre></div>
+</div>
 <span class="target" id="id5"></span></section>
 </section>
 
@@ -732,9 +741,7 @@ x_1 = \frac{8}{5}
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Eliminasi Gauss (Gaussian Elimination)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas">Tugas</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear-3-variabel">Sistem Persamaan Linear 3 Variabel</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear-3-variabel">Sistem Persamaan Linear 3 Variabel</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-kolom-pertama">Eliminasi Kolom Pertama</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-kolom-kedua">Eliminasi Kolom Kedua</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-pivot-1">Membuat Pivot = 1</a></li>

@@ -1,6 +1,6 @@
-## Eliminasi Gauss (Gaussian Elimination)
+# Eliminasi Gauss (Gaussian Elimination)
 
-### Tugas
+## Tugas
 
 Contoh SPL 3 Variabel
 ## Sistem Persamaan Linear 3 Variabel
@@ -27,7 +27,7 @@ $$
 \right]
 $$
 
-### Eliminasi Kolom Pertama
+## Eliminasi Kolom Pertama
 
 $$
 R_2 \rightarrow R_2 - 2R_1
@@ -49,7 +49,7 @@ $$
 \right]
 $$
 
-### Eliminasi Kolom Kedua
+## Eliminasi Kolom Kedua
 
 $$
 R_3 \rightarrow R_3 - 2R_2
@@ -65,7 +65,7 @@ $$
 \right]
 $$
 
-### Membuat Pivot = 1
+## Membuat Pivot = 1
 
 $$
 R_3 \rightarrow -\frac{1}{19}R_3
@@ -81,7 +81,7 @@ $$
 \right]
 $$
 
-### Substitusi Balik
+## Substitusi Balik
 
 $$
 x_3 = 2
@@ -108,7 +108,7 @@ B.rescale_row(2, -1)
 B
 ```
 
-## Sistem Persamaan Linear 4 Variabel
+# Sistem Persamaan Linear 4 Variabel
 
 Diketahui:
 
@@ -134,7 +134,7 @@ $$
 \right]
 $$
 
-### Eliminasi Kolom Pertama
+## Eliminasi Kolom Pertama
 
 $$
 R_2 \rightarrow R_2 - 2R_1
@@ -161,7 +161,7 @@ $$
 \right]
 $$
 
-### Eliminasi Kolom Kedua
+## Eliminasi Kolom Kedua
 
 $$
 R_3 \rightarrow R_3 + 2R_2
@@ -182,7 +182,7 @@ $$
 \right]
 $$
 
-### Eliminasi Kolom Ketiga
+## Eliminasi Kolom Ketiga
 
 $$
 R_4 \rightarrow R_4 - 4R_3
@@ -199,7 +199,7 @@ $$
 \right]
 $$
 
-### Membuat Pivot = 1
+## Membuat Pivot = 1
 
 $$
 R_4 \rightarrow \frac{1}{5}R_4
@@ -216,7 +216,7 @@ $$
 \right]
 $$
 
-### Substitusi Balik
+## Substitusi Balik
 
 $$
 x_4 = \frac{19}{5}
@@ -244,6 +244,18 @@ $$
 \right)
 $$
 
+```python
+B = matrix([[1, 1, 1, 1, 10],[2, 3, 1, 4, 16],[1, 1, 2, 1, 8],[3, 1, 1, 2, 17]])
+
+B.add_multiple_of_row(1, 0, -2)
+B.add_multiple_of_row(2, 0, -1)
+B.add_multiple_of_row(3, 0, -3)
+B.add_multiple_of_row(2, 1, 2)
+B.add_multiple_of_row(3, 1, 2)
+B.add_multiple_of_row(3, 2, -4)
+B.rescale_row(3, 1/5)
+B
+```
 ```{bibliography}
 ```
 
