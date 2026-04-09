@@ -255,6 +255,20 @@ B.add_multiple_of_row(3, 1, 2)
 B.add_multiple_of_row(3, 2, -4)
 B.rescale_row(3, 1/5)
 B
+
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>
+sagecell.makeSagecell({inputLocation: '.sage'});
+</script>
+
+<div class="sage">
+A = matrix([[1, 1, 1, 6],[2, -1, 1, 3],[1, 2, -1, 3]])
+A.add_multiple_of_row(1, 0, -2)
+A.add_multiple_of_row(2, 0, -1)
+print (A)
+
+</div>
+
 ```
 ```{bibliography}
 ```
