@@ -1,53 +1,184 @@
----
-jupytext:
-  formats: md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.11.5
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
+# Tugas
+Buat matrik tranformasi dari:
+<iframe src="https://www.geogebra.org/calculator/jxrvcyu6?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+
+Dari gambar, koordinat titik:
+- A = (2, 3)
+- B = (2, 1)
+- C = (4, 1)
+
 ---
 
-# Notebooks with MyST Markdown
+Diketahui:
+A = (2,3)
 
-Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See [the Notebooks with MyST Markdown documentation](https://jupyterbook.org/file-types/myst-notebooks.html) for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.
+---
 
-## An example cell
+## 1. Transformasi A ke B
 
-With MyST Markdown, you can define code cells with a directive like so:
+Perpindahan:
+(2,3) → (2,1)
 
-```{code-cell}
-print(2 + 2)
-```
+$$
+\begin{bmatrix}
+1 & 0 \\
+2 & -1
+\end{bmatrix}
+\begin{bmatrix}
+2 \\
+3
+\end{bmatrix}
+=
+\begin{bmatrix}
+(1 \cdot 2 + 0 \cdot 3) \\
+(2 \cdot 2 + (-1) \cdot 3)
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 \\
+1
+\end{bmatrix}
+$$
 
-When your book is built, the contents of any `{code-cell}` blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.
+---
 
-```{seealso}
-Jupyter Book uses [Jupytext](https://jupytext.readthedocs.io/en/latest/) to convert text-based files to notebooks, and can support [many other text-based notebook files](https://jupyterbook.org/file-types/jupytext.html).
-```
+## 2. Transformasi B ke C
 
-## Create a notebook with MyST Markdown
+Perpindahan:
+(2,1) → (4,1)
 
-MyST Markdown notebooks are defined by two things:
+$$
+\begin{bmatrix}
+2 & 0 \\
+0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+2 \\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+(2 \cdot 2 + 0 \cdot 1) \\
+(0 \cdot 2 + 1 \cdot 1)
+\end{bmatrix}
+=
+\begin{bmatrix}
+4 \\
+1
+\end{bmatrix}
+$$
 
-1. YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-   See the YAML at the top of this page for example.
-2. The presence of `{code-cell}` directives, which will be executed with your book.
+---
 
-That's all that is needed to get started!
+## 3. Transformasi A ke C
 
-## Quickly add YAML metadata for MyST Notebooks
+Perpindahan:
+(2,3) → (4,1)
 
-If you have a markdown file and you'd like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:
+$$
+\begin{bmatrix}
+2 & 0 \\
+2 & -1
+\end{bmatrix}
+\begin{bmatrix}
+2 \\
+3
+\end{bmatrix}
+=
+\begin{bmatrix}
+(2 \cdot 2 + 0 \cdot 3) \\
+(2 \cdot 2 + (-1) \cdot 3)
+\end{bmatrix}
+=
+\begin{bmatrix}
+4 \\
+1
+\end{bmatrix}
+$$
 
-```
-jupyter-book myst init path/to/markdownfile.md
-```
+Diketahui:
+D = (2,4)
+
+---
+
+## 1. Transformasi D ke E
+
+Perpindahan:
+(2,4) → (2,0)
+
+$$
+\begin{bmatrix}
+1 & 0 \\
+2 & -1
+\end{bmatrix}
+\begin{bmatrix}
+2 \\
+4
+\end{bmatrix}
+=
+\begin{bmatrix}
+(1 \cdot 2 + 0 \cdot 4) \\
+(2 \cdot 2 + (-1) \cdot 4)
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 \\
+0
+\end{bmatrix}
+$$
+
+---
+
+## 2. Transformasi E ke F
+
+Perpindahan:
+(2,0) → (4,0)
+
+$$
+\begin{bmatrix}
+2 & 0 \\
+0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+2 \\
+0
+\end{bmatrix}
+=
+\begin{bmatrix}
+(2 \cdot 2 + 0 \cdot 0) \\
+(0 \cdot 2 + 1 \cdot 0)
+\end{bmatrix}
+=
+\begin{bmatrix}
+4 \\
+0
+\end{bmatrix}
+$$
+
+---
+
+## 3. Transformasi D ke F
+
+Perpindahan:
+(2,4) → (4,0)
+
+$$
+\begin{bmatrix}
+2 & 0 \\
+2 & -1
+\end{bmatrix}
+\begin{bmatrix}
+2 \\
+4
+\end{bmatrix}
+=
+\begin{bmatrix}
+(2 \cdot 2 + 0 \cdot 4) \\
+(2 \cdot 2 + (-1) \cdot 4)
+\end{bmatrix}
+=
+\begin{bmatrix}
+4 \\
+0
+\end{bmatrix}
+$$

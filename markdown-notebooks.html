@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Notebooks with MyST Markdown &#8212; My sample book</title>
+    <title>Tugas &#8212; My sample book</title>
   
   
   
@@ -57,10 +57,12 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'markdown-notebooks';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Content with notebooks" href="notebooks.html" />
+    <link rel="prev" title="Matrix" href="Matrix.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,10 +183,11 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Eliminasi Gauss (Gaussian Elimination)</a></li>
 
-
-
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Matrix.html">Matrix</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas</a></li>
 </ul>
 
     </div>
@@ -370,7 +373,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Notebooks with MyST Markdown</h1>
+    <h1>Tugas</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -380,9 +383,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-a-ke-b">1. Transformasi A ke B</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-b-ke-c">2. Transformasi B ke C</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-a-ke-c">3. Transformasi A ke C</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-d-ke-e">1. Transformasi D ke E</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-e-ke-f">2. Transformasi E ke F</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-d-ke-f">3. Transformasi D ke F</a></li>
 </ul>
             </nav>
         </div>
@@ -394,50 +400,182 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="notebooks-with-myst-markdown">
-<h1>Notebooks with MyST Markdown<a class="headerlink" href="#notebooks-with-myst-markdown" title="Link to this heading">#</a></h1>
-<p>Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See <a class="reference external" href="https://jupyterbook.org/file-types/myst-notebooks.html">the Notebooks with MyST Markdown documentation</a> for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.</p>
-<section id="an-example-cell">
-<h2>An example cell<a class="headerlink" href="#an-example-cell" title="Link to this heading">#</a></h2>
-<p>With MyST Markdown, you can define code cells with a directive like so:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
-</pre></div>
-</div>
-</div>
-</div>
-<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Jupyter Book uses <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> to convert text-based files to notebooks, and can support <a class="reference external" href="https://jupyterbook.org/file-types/jupytext.html">many other text-based notebook files</a>.</p>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="tugas">
+<h1>Tugas<a class="headerlink" href="#tugas" title="Link to this heading">#</a></h1>
+<p>Buat matrik tranformasi dari:</p>
+<iframe src="https://www.geogebra.org/calculator/jxrvcyu6?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+<p>Dari gambar, koordinat titik:</p>
+<ul class="simple">
+<li><p>A = (2, 3)</p></li>
+<li><p>B = (2, 1)</p></li>
+<li><p>C = (4, 1)</p></li>
+</ul>
+<hr class="docutils" />
+<p>Diketahui:
+A = (2,3)</p>
+<hr class="docutils" />
+<section id="transformasi-a-ke-b">
+<h2>1. Transformasi A ke B<a class="headerlink" href="#transformasi-a-ke-b" title="Link to this heading">#</a></h2>
+<p>Perpindahan:
+(2,3) → (2,1)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1 &amp; 0 \\
+2 &amp; -1
+\end{bmatrix}
+\begin{bmatrix}
+2 \\
+3
+\end{bmatrix}
+=
+\begin{bmatrix}
+(1 \cdot 2 + 0 \cdot 3) \\
+(2 \cdot 2 + (-1) \cdot 3)
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 \\
+1
+\end{bmatrix}
+\end{split}\]</div>
 </section>
-<section id="create-a-notebook-with-myst-markdown">
-<h2>Create a notebook with MyST Markdown<a class="headerlink" href="#create-a-notebook-with-myst-markdown" title="Link to this heading">#</a></h2>
-<p>MyST Markdown notebooks are defined by two things:</p>
-<ol class="arabic simple">
-<li><p>YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-See the YAML at the top of this page for example.</p></li>
-<li><p>The presence of <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> directives, which will be executed with your book.</p></li>
-</ol>
-<p>That’s all that is needed to get started!</p>
+<hr class="docutils" />
+<section id="transformasi-b-ke-c">
+<h2>2. Transformasi B ke C<a class="headerlink" href="#transformasi-b-ke-c" title="Link to this heading">#</a></h2>
+<p>Perpindahan:
+(2,1) → (4,1)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+2 &amp; 0 \\
+0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+2 \\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+(2 \cdot 2 + 0 \cdot 1) \\
+(0 \cdot 2 + 1 \cdot 1)
+\end{bmatrix}
+=
+\begin{bmatrix}
+4 \\
+1
+\end{bmatrix}
+\end{split}\]</div>
 </section>
-<section id="quickly-add-yaml-metadata-for-myst-notebooks">
-<h2>Quickly add YAML metadata for MyST Notebooks<a class="headerlink" href="#quickly-add-yaml-metadata-for-myst-notebooks" title="Link to this heading">#</a></h2>
-<p>If you have a markdown file and you’d like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">myst</span> <span class="n">init</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">markdownfile</span><span class="o">.</span><span class="n">md</span>
-</pre></div>
-</div>
+<hr class="docutils" />
+<section id="transformasi-a-ke-c">
+<h2>3. Transformasi A ke C<a class="headerlink" href="#transformasi-a-ke-c" title="Link to this heading">#</a></h2>
+<p>Perpindahan:
+(2,3) → (4,1)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+2 &amp; 0 \\
+2 &amp; -1
+\end{bmatrix}
+\begin{bmatrix}
+2 \\
+3
+\end{bmatrix}
+=
+\begin{bmatrix}
+(2 \cdot 2 + 0 \cdot 3) \\
+(2 \cdot 2 + (-1) \cdot 3)
+\end{bmatrix}
+=
+\begin{bmatrix}
+4 \\
+1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Diketahui:
+D = (2,4)</p>
+</section>
+<hr class="docutils" />
+<section id="transformasi-d-ke-e">
+<h2>1. Transformasi D ke E<a class="headerlink" href="#transformasi-d-ke-e" title="Link to this heading">#</a></h2>
+<p>Perpindahan:
+(2,4) → (2,0)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1 &amp; 0 \\
+2 &amp; -1
+\end{bmatrix}
+\begin{bmatrix}
+2 \\
+4
+\end{bmatrix}
+=
+\begin{bmatrix}
+(1 \cdot 2 + 0 \cdot 4) \\
+(2 \cdot 2 + (-1) \cdot 4)
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 \\
+0
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="transformasi-e-ke-f">
+<h2>2. Transformasi E ke F<a class="headerlink" href="#transformasi-e-ke-f" title="Link to this heading">#</a></h2>
+<p>Perpindahan:
+(2,0) → (4,0)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+2 &amp; 0 \\
+0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+2 \\
+0
+\end{bmatrix}
+=
+\begin{bmatrix}
+(2 \cdot 2 + 0 \cdot 0) \\
+(0 \cdot 2 + 1 \cdot 0)
+\end{bmatrix}
+=
+\begin{bmatrix}
+4 \\
+0
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="transformasi-d-ke-f">
+<h2>3. Transformasi D ke F<a class="headerlink" href="#transformasi-d-ke-f" title="Link to this heading">#</a></h2>
+<p>Perpindahan:
+(2,4) → (4,0)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+2 &amp; 0 \\
+2 &amp; -1
+\end{bmatrix}
+\begin{bmatrix}
+2 \\
+4
+\end{bmatrix}
+=
+\begin{bmatrix}
+(2 \cdot 2 + 0 \cdot 4) \\
+(2 \cdot 2 + (-1) \cdot 4)
+\end{bmatrix}
+=
+\begin{bmatrix}
+4 \\
+0
+\end{bmatrix}
+\end{split}\]</div>
 </section>
 </section>
 
@@ -472,12 +610,12 @@ See the YAML at the top of this page for example.</p></li>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="notebooks.html"
+       href="Matrix.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Content with notebooks</p>
+        <p class="prev-next-title">Matrix</p>
       </div>
     </a>
 </div>
@@ -496,9 +634,12 @@ See the YAML at the top of this page for example.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-a-ke-b">1. Transformasi A ke B</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-b-ke-c">2. Transformasi B ke C</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-a-ke-c">3. Transformasi A ke C</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-d-ke-e">1. Transformasi D ke E</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-e-ke-f">2. Transformasi E ke F</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-d-ke-f">3. Transformasi D ke F</a></li>
 </ul>
   </nav></div>
 
