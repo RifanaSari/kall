@@ -503,3 +503,352 @@ $$
 $$
 
 Dengan menggunakan transformasi tersebut, objek dapat bergerak dan dicerminkan secara animasi pada bidang koordinat.
+
+## Tugas tanggal 21 Mei 2026
+### Dekomposisi QR Manual (Gram-Schmidt)
+
+#### Matriks A
+
+$$
+A=
+\begin{bmatrix}
+2 & 1 & 3 & 0\\
+1 & 4 & 2 & 1\\
+3 & 0 & 1 & 2\\
+0 & 2 & 1 & 3
+\end{bmatrix}
+$$
+
+Kolom-kolom:
+
+$$
+a_1=(2,1,3,0)
+$$
+
+$$
+a_2=(1,4,0,2)
+$$
+
+$$
+a_3=(3,2,1,1)
+$$
+
+$$
+a_4=(0,1,2,3)
+$$
+
+---
+
+#### 1. Cari q₁
+
+Norm:
+
+$$
+\sqrt{2^2+1^2+3^2+0^2}
+=
+\sqrt{14}
+$$
+
+$$
+q_1=
+\left(
+\frac2{\sqrt{14}},
+\frac1{\sqrt{14}},
+\frac3{\sqrt{14}},
+0
+\right)
+$$
+
+---
+
+#### 2. Cari q₂
+
+Dot product:
+
+$$
+a_2 \cdot q_1
+=
+\frac{2(1)+1(4)+3(0)+0(2)}{\sqrt{14}}
+=
+\frac6{\sqrt{14}}
+$$
+
+Proyeksi:
+
+$$
+\frac6{\sqrt{14}}q_1
+=
+\left(
+\frac67,
+\frac37,
+\frac97,
+0
+\right)
+$$
+
+Kurangkan:
+
+$$
+u_2
+=
+(1,4,0,2)
+-
+\left(
+\frac67,
+\frac37,
+\frac97,
+0
+\right)
+$$
+
+$$
+=
+\left(
+\frac17,
+\frac{25}7,
+-\frac97,
+2
+\right)
+$$
+
+Norm:
+
+$$
+\|u_2\|
+=
+\frac{\sqrt{903}}7
+$$
+
+Maka:
+
+$$
+q_2=
+\left(
+\frac1{\sqrt{903}},
+\frac{25}{\sqrt{903}},
+-\frac9{\sqrt{903}},
+\frac{14}{\sqrt{903}}
+\right)
+$$
+
+---
+
+#### 3. Cari q₃
+
+Hitung dot pertama:
+
+$$
+a_3 \cdot q_1
+=
+\frac{2(3)+1(2)+3(1)+0(1)}{\sqrt{14}}
+=
+\frac{11}{\sqrt{14}}
+$$
+
+Proyeksi ke q₁:
+
+$$
+\frac{11}{\sqrt{14}}q_1
+=
+\left(
+\frac{11}7,
+\frac{11}{14},
+\frac{33}{14},
+0
+\right)
+$$
+
+---
+
+Dot kedua:
+
+$$
+a_3 \cdot q_2
+=
+\frac{
+1(3)+25(2)+(-9)(1)+14(1)
+}{\sqrt{903}}
+=
+\frac{58}{\sqrt{903}}
+$$
+
+Proyeksi ke q₂:
+
+$$
+\frac{58}{\sqrt{903}}q_2
+=
+\left(
+\frac{58}{903},
+\frac{1450}{903},
+-\frac{522}{903},
+\frac{812}{903}
+\right)
+$$
+
+---
+
+Kurangkan semuanya:
+
+$$
+u_3
+=
+a_3
+-
+\text{proj}_{q_1}
+-
+\text{proj}_{q_2}
+$$
+
+$$
+=
+(3,2,1,1)
+-
+\left(
+\frac{11}7,
+\frac{11}{14},
+\frac{33}{14},
+0
+\right)
+-
+\left(
+\frac{58}{903},
+\frac{1450}{903},
+-\frac{522}{903},
+\frac{812}{903}
+\right)
+$$
+
+Hasil pendekatan:
+
+$$
+u_3
+\approx
+(1.364,-0.391,-0.781,0.101)
+$$
+
+Norm:
+
+$$
+\|u_3\|
+\approx 1.622
+$$
+
+Maka:
+
+$$
+q_3
+\approx
+(0.841,-0.241,-0.482,0.062)
+$$
+
+---
+
+#### 4. Cari q₄
+
+Hitung:
+
+$$
+a_4 \cdot q_1
+=
+\frac{2(0)+1(1)+3(2)+0(3)}{\sqrt{14}}
+=
+\frac7{\sqrt{14}}
+$$
+
+Proyeksi:
+
+$$
+\frac7{\sqrt{14}}q_1
+=
+(1,\tfrac12,\tfrac32,0)
+$$
+
+---
+
+Dot kedua:
+
+$$
+a_4 \cdot q_2
+=
+\frac{
+1(0)+25(1)+(-9)(2)+14(3)
+}{\sqrt{903}}
+=
+\frac{49}{\sqrt{903}}
+$$
+
+Proyeksi:
+
+$$
+\frac{49}{\sqrt{903}}q_2
+\approx
+(0.054,1.357,-0.488,0.760)
+$$
+
+---
+
+Dot ketiga:
+
+$$
+a_4 \cdot q_3
+\approx 1.221
+$$
+
+Proyeksi:
+
+$$
+1.221q_3
+\approx
+(1.027,-0.294,-0.589,0.076)
+$$
+
+---
+
+Kurangkan:
+
+$$
+u_4
+=
+a_4
+-
+\text{proj}_{q_1}
+-
+\text{proj}_{q_2}
+-
+\text{proj}_{q_3}
+$$
+
+$$
+\approx
+(-2.081,-0.563,1.577,2.164)
+$$
+
+Norm:
+
+$$
+\|u_4\|
+\approx 3.422
+$$
+
+Maka:
+
+$$
+q_4
+\approx
+(-0.608,-0.165,0.461,0.632)
+$$
+
+---
+
+#### Hasil Akhir Q
+
+$$
+Q
+\approx
+\begin{bmatrix}
+0.535 & 0.033 & 0.841 & -0.608\\
+0.267 & 0.832 & -0.241 & -0.165\\
+0.802 & -0.300 & -0.482 & 0.461\\
+0 & 0.466 & 0.062 & 0.632
+\end{bmatrix}
+$$

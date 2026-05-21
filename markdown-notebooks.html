@@ -417,6 +417,18 @@ document.write(`
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-tanggal-21-mei-2026">Tugas tanggal 21 Mei 2026</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dekomposisi-qr-manual-gram-schmidt">Dekomposisi QR Manual (Gram-Schmidt)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-a">Matriks A</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cari-q1">1. Cari q₁</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cari-q2">2. Cari q₂</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cari-q3">3. Cari q₃</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cari-q4">4. Cari q₄</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir-q">Hasil Akhir Q</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -891,6 +903,330 @@ D = (2,4)</p>
 </section>
 </section>
 </section>
+<section id="tugas-tanggal-21-mei-2026">
+<h2>Tugas tanggal 21 Mei 2026<a class="headerlink" href="#tugas-tanggal-21-mei-2026" title="Link to this heading">#</a></h2>
+<section id="dekomposisi-qr-manual-gram-schmidt">
+<h3>Dekomposisi QR Manual (Gram-Schmidt)<a class="headerlink" href="#dekomposisi-qr-manual-gram-schmidt" title="Link to this heading">#</a></h3>
+<section id="matriks-a">
+<h4>Matriks A<a class="headerlink" href="#matriks-a" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A=
+\begin{bmatrix}
+2 &amp; 1 &amp; 3 &amp; 0\\
+1 &amp; 4 &amp; 2 &amp; 1\\
+3 &amp; 0 &amp; 1 &amp; 2\\
+0 &amp; 2 &amp; 1 &amp; 3
+\end{bmatrix}
+\end{split}\]</div>
+<p>Kolom-kolom:</p>
+<div class="math notranslate nohighlight">
+\[
+a_1=(2,1,3,0)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+a_2=(1,4,0,2)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+a_3=(3,2,1,1)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+a_4=(0,1,2,3)
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="cari-q1">
+<h4>1. Cari q₁<a class="headerlink" href="#cari-q1" title="Link to this heading">#</a></h4>
+<p>Norm:</p>
+<div class="math notranslate nohighlight">
+\[
+\sqrt{2^2+1^2+3^2+0^2}
+=
+\sqrt{14}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+q_1=
+\left(
+\frac2{\sqrt{14}},
+\frac1{\sqrt{14}},
+\frac3{\sqrt{14}},
+0
+\right)
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="cari-q2">
+<h4>2. Cari q₂<a class="headerlink" href="#cari-q2" title="Link to this heading">#</a></h4>
+<p>Dot product:</p>
+<div class="math notranslate nohighlight">
+\[
+a_2 \cdot q_1
+=
+\frac{2(1)+1(4)+3(0)+0(2)}{\sqrt{14}}
+=
+\frac6{\sqrt{14}}
+\]</div>
+<p>Proyeksi:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac6{\sqrt{14}}q_1
+=
+\left(
+\frac67,
+\frac37,
+\frac97,
+0
+\right)
+\]</div>
+<p>Kurangkan:</p>
+<div class="math notranslate nohighlight">
+\[
+u_2
+=
+(1,4,0,2)
+-
+\left(
+\frac67,
+\frac37,
+\frac97,
+0
+\right)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+=
+\left(
+\frac17,
+\frac{25}7,
+-\frac97,
+2
+\right)
+\]</div>
+<p>Norm:</p>
+<div class="math notranslate nohighlight">
+\[
+\|u_2\|
+=
+\frac{\sqrt{903}}7
+\]</div>
+<p>Maka:</p>
+<div class="math notranslate nohighlight">
+\[
+q_2=
+\left(
+\frac1{\sqrt{903}},
+\frac{25}{\sqrt{903}},
+-\frac9{\sqrt{903}},
+\frac{14}{\sqrt{903}}
+\right)
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="cari-q3">
+<h4>3. Cari q₃<a class="headerlink" href="#cari-q3" title="Link to this heading">#</a></h4>
+<p>Hitung dot pertama:</p>
+<div class="math notranslate nohighlight">
+\[
+a_3 \cdot q_1
+=
+\frac{2(3)+1(2)+3(1)+0(1)}{\sqrt{14}}
+=
+\frac{11}{\sqrt{14}}
+\]</div>
+<p>Proyeksi ke q₁:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{11}{\sqrt{14}}q_1
+=
+\left(
+\frac{11}7,
+\frac{11}{14},
+\frac{33}{14},
+0
+\right)
+\]</div>
+<hr class="docutils" />
+<p>Dot kedua:</p>
+<div class="math notranslate nohighlight">
+\[
+a_3 \cdot q_2
+=
+\frac{
+1(3)+25(2)+(-9)(1)+14(1)
+}{\sqrt{903}}
+=
+\frac{58}{\sqrt{903}}
+\]</div>
+<p>Proyeksi ke q₂:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{58}{\sqrt{903}}q_2
+=
+\left(
+\frac{58}{903},
+\frac{1450}{903},
+-\frac{522}{903},
+\frac{812}{903}
+\right)
+\]</div>
+<hr class="docutils" />
+<p>Kurangkan semuanya:</p>
+<div class="math notranslate nohighlight">
+\[
+u_3
+=
+a_3
+-
+\text{proj}_{q_1}
+-
+\text{proj}_{q_2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+=
+(3,2,1,1)
+-
+\left(
+\frac{11}7,
+\frac{11}{14},
+\frac{33}{14},
+0
+\right)
+-
+\left(
+\frac{58}{903},
+\frac{1450}{903},
+-\frac{522}{903},
+\frac{812}{903}
+\right)
+\]</div>
+<p>Hasil pendekatan:</p>
+<div class="math notranslate nohighlight">
+\[
+u_3
+\approx
+(1.364,-0.391,-0.781,0.101)
+\]</div>
+<p>Norm:</p>
+<div class="math notranslate nohighlight">
+\[
+\|u_3\|
+\approx 1.622
+\]</div>
+<p>Maka:</p>
+<div class="math notranslate nohighlight">
+\[
+q_3
+\approx
+(0.841,-0.241,-0.482,0.062)
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="cari-q4">
+<h4>4. Cari q₄<a class="headerlink" href="#cari-q4" title="Link to this heading">#</a></h4>
+<p>Hitung:</p>
+<div class="math notranslate nohighlight">
+\[
+a_4 \cdot q_1
+=
+\frac{2(0)+1(1)+3(2)+0(3)}{\sqrt{14}}
+=
+\frac7{\sqrt{14}}
+\]</div>
+<p>Proyeksi:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac7{\sqrt{14}}q_1
+=
+(1,\tfrac12,\tfrac32,0)
+\]</div>
+<hr class="docutils" />
+<p>Dot kedua:</p>
+<div class="math notranslate nohighlight">
+\[
+a_4 \cdot q_2
+=
+\frac{
+1(0)+25(1)+(-9)(2)+14(3)
+}{\sqrt{903}}
+=
+\frac{49}{\sqrt{903}}
+\]</div>
+<p>Proyeksi:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{49}{\sqrt{903}}q_2
+\approx
+(0.054,1.357,-0.488,0.760)
+\]</div>
+<hr class="docutils" />
+<p>Dot ketiga:</p>
+<div class="math notranslate nohighlight">
+\[
+a_4 \cdot q_3
+\approx 1.221
+\]</div>
+<p>Proyeksi:</p>
+<div class="math notranslate nohighlight">
+\[
+1.221q_3
+\approx
+(1.027,-0.294,-0.589,0.076)
+\]</div>
+<hr class="docutils" />
+<p>Kurangkan:</p>
+<div class="math notranslate nohighlight">
+\[
+u_4
+=
+a_4
+-
+\text{proj}_{q_1}
+-
+\text{proj}_{q_2}
+-
+\text{proj}_{q_3}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\approx
+(-2.081,-0.563,1.577,2.164)
+\]</div>
+<p>Norm:</p>
+<div class="math notranslate nohighlight">
+\[
+\|u_4\|
+\approx 3.422
+\]</div>
+<p>Maka:</p>
+<div class="math notranslate nohighlight">
+\[
+q_4
+\approx
+(-0.608,-0.165,0.461,0.632)
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="hasil-akhir-q">
+<h4>Hasil Akhir Q<a class="headerlink" href="#hasil-akhir-q" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+Q
+\approx
+\begin{bmatrix}
+0.535 &amp; 0.033 &amp; 0.841 &amp; -0.608\\
+0.267 &amp; 0.832 &amp; -0.241 &amp; -0.165\\
+0.802 &amp; -0.300 &amp; -0.482 &amp; 0.461\\
+0 &amp; 0.466 &amp; 0.062 &amp; 0.632
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -987,6 +1323,18 @@ D = (2,4)</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#translasi">Translasi</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Matriks Refleksi</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-translasi-homogen">Matriks Translasi Homogen</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-tanggal-21-mei-2026">Tugas tanggal 21 Mei 2026</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dekomposisi-qr-manual-gram-schmidt">Dekomposisi QR Manual (Gram-Schmidt)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-a">Matriks A</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cari-q1">1. Cari q₁</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cari-q2">2. Cari q₂</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cari-q3">3. Cari q₃</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cari-q4">4. Cari q₄</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir-q">Hasil Akhir Q</a></li>
 </ul>
 </li>
 </ul>
