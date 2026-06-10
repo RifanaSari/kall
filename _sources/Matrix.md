@@ -1,4 +1,4 @@
-# Matrix
+# Invers Matrix
 
 ## Tugas 1 tanggal 9 April 2026
 ## Cari invers dari :
